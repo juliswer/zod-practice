@@ -79,7 +79,7 @@ console.log(result) */
 
 // ! Fifth example
 
-const UserSchema = z.object({
+/* const UserSchema = z.object({
   name: z.string(),
   age: z.number(),
 });
@@ -108,4 +108,4 @@ type s1Type = z.infer<typeof s1>
 type s2Types = z.infer<typeof s2>
 
 const s1res = s1.parse(["1", undefined])
-console.log(s1res)
+console.log(s1res) */
