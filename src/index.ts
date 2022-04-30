@@ -79,3 +79,24 @@ console.log(result) */
 
 // ! Fifth example
 
+const UserSchema = z.object({
+  name: z.string(),
+  age: z.number(),
+});
+
+// const numbersArraySchema = z.array(z.string());
+const usersSchema = z.array(UserSchema);
+
+// type numbersArrayType = z.infer<typeof numbersArraySchema>;
+
+const res = usersSchema.parse([
+  {
+    name: "jon doe",
+    age: 30,
+  },
+  {
+    name: "jon doe2",
+    age: 31,
+  },
+]);
+console.log(res);
