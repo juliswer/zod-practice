@@ -1,12 +1,16 @@
 import { z } from "zod";
 
-const nameSchema = z.string();
-const numberSchema = z.number();
-const booleanSchema = z.boolean();
-const undefinedSchema = z.undefined();
-const nullSchema = z.null();
+const userSchema = z.object({
+    email: z.string().email(),
+    fullname: z.string(),
+    phone: z.number()
+})
 
-const name = 100;
+const user = {
+    email: "anfgag@agd.com",
+    fullname: "anfgag",
+    phone: 123
+}
 
-const res = numberSchema.parse(name);
+const res = userSchema.parse(user);
 console.log(res);
