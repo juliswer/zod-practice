@@ -38,7 +38,7 @@ console.log(res); */
 
 // ! Third example
 
-const UserSchema = z.object({
+/* const UserSchema = z.object({
   email: z.string().email(),
   fullname: z.string(),
   phone: z.number(),
@@ -68,4 +68,14 @@ const citizen : CitizenType = {
 }
 
 const rescitizen = citizenSchema.parse(citizen);
-console.log(rescitizen);
+console.log(rescitizen); */
+
+// ! Fourth example
+
+/* const stringSchema = z.string();
+
+const result = stringSchema.safeParse("30");
+console.log(result) */
+
+// ! Fifth example
+
