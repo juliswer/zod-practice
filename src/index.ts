@@ -1,5 +1,7 @@
 import { z } from "zod";
 
+// ! First example
+
 /* const userSchema = z.object({
     email: z.string().email(),
     fullname: z.string(),
@@ -15,7 +17,9 @@ const user = {
 const res = userSchema.parse(user);
 console.log(res); */
 
-const UserSchema = z.object({
+// ! Second example
+
+/* const UserSchema = z.object({
   email: z.string().email(),
   fullname: z.string(),
   phone: z.number(),
@@ -30,4 +34,38 @@ const UserInput: UserType = {
 }
 
 const res = UserSchema.parse(UserInput);
+console.log(res); */
+
+// ! Third example
+
+const UserSchema = z.object({
+  email: z.string().email(),
+  fullname: z.string(),
+  phone: z.number(),
+});
+
+const addressSchema = z.object({
+  street: z.string(),
+  city: z.string(),
+});
+
+const citizenSchema = UserSchema.merge(addressSchema);
+
+type CitizenType = z.infer<typeof citizenSchema>
+
+const res = addressSchema.parse({
+  street: "asdasd",
+  city: "asdasd",
+});
 console.log(res);
+
+const citizen : CitizenType = {
+    city: "bsas",
+    email: "jasfga@gmail.com",
+    phone: 123,
+    street: "asdasd",
+    fullname: "jon doe"
+}
+
+const rescitizen = citizenSchema.parse(citizen);
+console.log(rescitizen);
