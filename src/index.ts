@@ -100,3 +100,12 @@ const res = usersSchema.parse([
   },
 ]);
 console.log(res);
+
+const s1 = z.string().optional().array();
+const s2 = z.string().array().optional();
+
+type s1Type = z.infer<typeof s1>
+type s2Types = z.infer<typeof s2>
+
+const s1res = s1.parse(["1", undefined])
+console.log(s1res)
